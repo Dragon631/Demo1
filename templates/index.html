@@ -1,0 +1,350 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<link rel="stylesheet" href="../static/css/smusic.css"/>
+<title>标准日本语MP3听力</title>
+</head>
+<body>
+<div class="grid-music-container f-usn">
+    <div class="m-music-play-wrap">
+        <div class="u-cover"></div>
+        <div class="m-now-info">
+            <h1 class="u-music-title"><strong>标题</strong><small>歌手</small></h1>
+            <div class="m-now-controls">
+                <div class="u-control u-process">
+                    <span class="buffer-process"></span>
+                    <span class="current-process"></span>
+                </div>
+                <div class="u-control u-time">00:00/00:00</div>
+                <div class="u-control u-volume">
+                    <div class="volume-process" data-volume="0.50">
+                        <span class="volume-current"></span>
+                        <span class="volume-bar"></span>
+                        <span class="volume-event"></span>
+                    </div>
+                    <a class="volume-control"></a>
+                </div>
+            </div>
+            <div class="m-play-controls">
+                <a class="u-play-btn prev" title="上一曲"></a>
+                <a class="u-play-btn ctrl-play play" title="暂停"></a>
+                <a class="u-play-btn next" title="下一曲"></a>
+                <a class="u-play-btn mode mode-list current" title="列表循环"></a>
+                <a class="u-play-btn mode mode-random" title="随机播放"></a>
+                <a class="u-play-btn mode mode-single" title="单曲循环"></a>
+            </div>
+        </div>
+    </div>
+    <div class="f-cb">&nbsp;</div>
+    <div class="m-music-list-wrap"></div>
+</div>
+<script src="../static/js/smusic.min.js"></script>
+<script>
+var musicList = [
+    {
+		title : 'Lesson01',
+		singer : '人人听力网',
+		cover  : '../static/img/japanese.jpg',
+		src    : '../static/mp3/Lesson01.MP3'
+	},
+	{
+		title : 'Lesson02',
+		singer : '人人听力网',
+		cover  : '../static/img/japanese.jpg',
+		src    : '../static/mp3/Lesson02.MP3'
+	},
+	{
+		title : 'Lesson03',
+		singer : '人人听力网',
+		cover  : '../static/img/japanese.jpg',
+		src    : '../static/mp3/Lesson03.MP3'
+	},
+	{
+		title : 'Lesson04',
+		singer : '人人听力网',
+		cover  : '../static/img/japanese.jpg',
+		src    : '../static/mp3/Lesson04.MP3'
+	},
+	{
+		title : 'Lesson05',
+		singer : '人人听力网',
+		cover  : '../static/img/japanese.jpg',
+		src    : '../static/mp3/Lesson05.MP3'
+	},
+	{
+		title : 'Lesson06',
+		singer : '人人听力网',
+		cover  : '../static/img/japanese.jpg',
+		src    : '../static/mp3/Lesson06.MP3'
+	},
+	{
+		title : 'Lesson07',
+		singer : '人人听力网',
+		cover  : '../static/img/japanese.jpg',
+		src    : '../static/mp3/Lesson07.MP3'
+	},
+	{
+		title : 'Lesson08',
+		singer : '人人听力网',
+		cover  : '../static/img/japanese.jpg',
+		src    : '../static/mp3/Lesson08.MP3'
+	},
+	{
+		title : 'Lesson09',
+		singer : '人人听力网',
+		cover  : '../static/img/japanese.jpg',
+		src    : '../static/mp3/Lesson09.MP3'
+	},
+	{
+		title : 'Lesson10',
+		singer : '人人听力网',
+		cover  : '../static/img/japanese.jpg',
+		src    : '../static/mp3/Lesson10.MP3'
+	},
+	{
+		title : 'Lesson11',
+		singer : '人人听力网',
+		cover  : '../static/img/japanese.jpg',
+		src    : '../static/mp3/Lesson11.MP3'
+	},
+	{
+		title : 'Lesson12',
+		singer : '人人听力网',
+		cover  : '../static/img/japanese.jpg',
+		src    : '../static/mp3/Lesson12.MP3'
+	},
+	{
+		title : 'Lesson13',
+		singer : '人人听力网',
+		cover  : '../static/img/japanese.jpg',
+		src    : '../static/mp3/Lesson13.MP3'
+	},
+	{
+		title : 'Lesson14',
+		singer : '人人听力网',
+		cover  : '../static/img/japanese.jpg',
+		src    : '../static/mp3/Lesson14.MP3'
+	},
+	{
+		title : 'Lesson15',
+		singer : '人人听力网',
+		cover  : '../static/img/japanese.jpg',
+		src    : '../static/mp3/Lesson15.MP3'
+	},
+	{
+		title : 'Lesson16',
+		singer : '人人听力网',
+		cover  : '../static/img/japanese.jpg',
+		src    : '../static/mp3/Lesson16.MP3'
+	},
+	{
+		title : 'Lesson17',
+		singer : '人人听力网',
+		cover  : '../static/img/japanese.jpg',
+		src    : '../static/mp3/Lesson17.MP3'
+	},
+	{
+		title : 'Lesson18',
+		singer : '人人听力网',
+		cover  : '../static/img/japanese.jpg',
+		src    : '../static/mp3/Lesson18.MP3'
+	},
+	{
+		title : 'Lesson19',
+		singer : '人人听力网',
+		cover  : '../static/img/japanese.jpg',
+		src    : '../static/mp3/Lesson19.MP3'
+	},
+	{
+		title : 'Lesson20',
+		singer : '人人听力网',
+		cover  : '../static/img/japanese.jpg',
+		src    : '../static/mp3/Lesson20.MP3'
+	},
+	{
+		title : 'Lesson21',
+		singer : '人人听力网',
+		cover  : '../static/img/japanese.jpg',
+		src    : '../static/mp3/Lesson21.MP3'
+	},
+	{
+		title : 'Lesson22',
+		singer : '人人听力网',
+		cover  : '../static/img/japanese.jpg',
+		src    : '../static/mp3/Lesson22.MP3'
+	},
+	{
+		title : 'Lesson23',
+		singer : '人人听力网',
+		cover  : '../static/img/japanese.jpg',
+		src    : '../static/mp3/Lesson23.MP3'
+	},
+	{
+		title : 'Lesson24',
+		singer : '人人听力网',
+		cover  : '../static/img/japanese.jpg',
+		src    : '../static/mp3/Lesson24.MP3'
+	},
+	{
+		title : 'Lesson25',
+		singer : '人人听力网',
+		cover  : '../static/img/japanese.jpg',
+		src    : '../static/mp3/Lesson25.MP3'
+	},
+	{
+		title : 'Lesson26',
+		singer : '人人听力网',
+		cover  : '../static/img/japanese.jpg',
+		src    : '../static/mp3/Lesson26.MP3'
+	},
+	{
+		title : 'Lesson27',
+		singer : '人人听力网',
+		cover  : '../static/img/japanese.jpg',
+		src    : '../static/mp3/Lesson27.MP3'
+	},
+	{
+		title : 'Lesson28',
+		singer : '人人听力网',
+		cover  : '../static/img/japanese.jpg',
+		src    : '../static/mp3/Lesson28.MP3'
+	},
+	{
+		title : 'Lesson29',
+		singer : '人人听力网',
+		cover  : '../static/img/japanese.jpg',
+		src    : '../static/mp3/Lesson29.MP3'
+	},
+	{
+		title : 'Lesson30',
+		singer : '人人听力网',
+		cover  : '../static/img/japanese.jpg',
+		src    : '../static/mp3/Lesson30.MP3'
+	},
+	{
+		title : 'Lesson31',
+		singer : '人人听力网',
+		cover  : '../static/img/japanese.jpg',
+		src    : '../static/mp3/Lesson31.MP3'
+	},
+	{
+		title : 'Lesson32',
+		singer : '人人听力网',
+		cover  : '../static/img/japanese.jpg',
+		src    : '../static/mp3/Lesson32.MP3'
+	},
+	{
+		title : 'Lesson33',
+		singer : '人人听力网',
+		cover  : '../static/img/japanese.jpg',
+		src    : '../static/mp3/Lesson33.MP3'
+	},
+	{
+		title : 'Lesson34',
+		singer : '人人听力网',
+		cover  : '../static/img/japanese.jpg',
+		src    : '../static/mp3/Lesson34.MP3'
+	},
+	{
+		title : 'Lesson35',
+		singer : '人人听力网',
+		cover  : '../static/img/japanese.jpg',
+		src    : '../static/mp3/Lesson35.MP3'
+	},
+	{
+		title : 'Lesson36',
+		singer : '人人听力网',
+		cover  : '../static/img/japanese.jpg',
+		src    : '../static/mp3/Lesson36.MP3'
+	},
+	{
+		title : 'Lesson37',
+		singer : '人人听力网',
+		cover  : '../static/img/japanese.jpg',
+		src    : '../static/mp3/Lesson37.MP3'
+	},
+	{
+		title : 'Lesson38',
+		singer : '人人听力网',
+		cover  : '../static/img/japanese.jpg',
+		src    : '../static/mp3/Lesson38.MP3'
+	},
+	{
+		title : 'Lesson39',
+		singer : '人人听力网',
+		cover  : '../static/img/japanese.jpg',
+		src    : '../static/mp3/Lesson39.MP3'
+	},
+	{
+		title : 'Lesson40',
+		singer : '人人听力网',
+		cover  : '../static/img/japanese.jpg',
+		src    : '../static/mp3/Lesson40.MP3'
+	},
+	{
+		title : 'Lesson41',
+		singer : '人人听力网',
+		cover  : '../static/img/japanese.jpg',
+		src    : '../static/mp3/Lesson41.MP3'
+	},
+	{
+		title : 'Lesson42',
+		singer : '人人听力网',
+		cover  : '../static/img/japanese.jpg',
+		src    : '../static/mp3/Lesson42.MP3'
+	},
+		{
+		title : 'Lesson43',
+		singer : '人人听力网',
+		cover  : '../static/img/japanese.jpg',
+		src    : '../static/mp3/Lesson43.MP3'
+	},
+		{
+		title : 'Lesson44',
+		singer : '人人听力网',
+		cover  : '../static/img/japanese.jpg',
+		src    : '../static/mp3/Lesson44.MP3'
+	},
+		{
+		title : 'Lesson45',
+		singer : '人人听力网',
+		cover  : '../static/img/japanese.jpg',
+		src    : '../static/mp3/Lesson45.MP3'
+	},	{
+		title : 'Lesson46',
+		singer : '人人听力网',
+		cover  : '../static/img/japanese.jpg',
+		src    : '../static/mp3/Lesson46.MP3'
+	},
+		{
+		title : 'Lesson47',
+		singer : '人人听力网',
+		cover  : '../static/img/japanese.jpg',
+		src    : '../static/mp3/Lesson47.MP3'
+	},
+		{
+		title : 'Lesson48',
+		singer : '人人听力网',
+		cover  : '../static/img/japanese.jpg',
+		src    : '../static/mp3/Lesson48.MP3'
+	},
+		{
+		title : 'Lesson49',
+		singer : '人人听力网',
+		cover  : '../static/img/japanese.jpg',
+		src    : '../static/mp3/Lesson49.MP3'
+	}
+];
+new SMusic({
+	musicList:musicList
+});
+</script>
+
+<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+<p>适用浏览器：360、FireFox、Chrome、Safari、Opera、傲游、搜狗、世界之窗. 不支持IE8及以下浏览器。</p>
+</div>
+</body>
+</html>
